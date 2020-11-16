@@ -1,9 +1,12 @@
 -- create database healthy_app;
 
- USE healthy_app; 
+USE healthy_app; 
+
+-- drop TABLE user_day;
+-- drop TABLE user;
 
 CREATE TABLE user(
-    id int not null  PRIMARY KEY,
+    user_name varchar(50) not null  PRIMARY KEY,
     name varchar(50),
     birth_date date,
     max_calories float,
@@ -15,15 +18,15 @@ CREATE TABLE user(
 
 
 CREATE TABLE user_day(
-    user_id int,
+    user_name varchar(50),
     date_of_day date,
-    max_calories float,
-    max_fat float,
-    max_sugar float,
-    max_protein float,
+    calories float,
+    fat float,
+    sugar float,
+    protein float,
 
-    PRIMARY KEY (user_id, date_of_day),
+    PRIMARY KEY (user_name, date_of_day),
 
-    FOREIGN KEY(user_id) REFERENCES user(id)
+    FOREIGN KEY(user_name) REFERENCES user(user_name)
 )
 
